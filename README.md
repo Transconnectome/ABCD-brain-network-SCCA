@@ -1,6 +1,6 @@
 # ABCD-brain-network-SCCA
 
-This repository contains code and synthetic data for the research paper titled "Multivariate patterns between brain network properties, polygenic scores, phenotypes, and environment in preadolescents" by Seo et al. (2023). The paper is available as a medRxiv preprint at: https://www.medrxiv.org/content/10.1101/2023.07.24.23293075v1
+This repository contains code and synthetic data for the research paper titled **"Multivariate patterns between brain network properties, polygenic scores, phenotypes, and environment in preadolescents"** by Seo et al. (2023). The paper is available as a medRxiv preprint at: https://www.medrxiv.org/content/10.1101/2023.07.24.23293075v1
 
 ## SCCA Code
 
@@ -24,3 +24,6 @@ This section describes the codes for Sparse Canonical Correlation Analysis (Witt
 - `bootstrap_vis_global_rich_club_BNM.py`: Visualization code for SCCA result of global brain network measures.
 
 ## Data
+- 'DTI_node_coordinate_22_07_14.csv', 'ENV_Pheno_separate.csv', 'ROI_list.csv' : Data required to visualize SCCA results
+
+## Reference
