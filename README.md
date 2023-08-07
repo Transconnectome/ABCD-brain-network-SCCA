@@ -24,6 +24,11 @@ This section describes the codes for Sparse Canonical Correlation Analysis (Witt
 - `bootstrap_vis_global_rich_club_BNM.py`: Visualization code for SCCA result of global brain network measures.
 
 ## Data
-- 'DTI_node_coordinate_22_07_14.csv', 'ENV_Pheno_separate.csv', 'ROI_list.csv' : Data required to visualize SCCA results
+- `DTI_node_coordinate_22_07_14.csv`, `ENV_Pheno_separate.csv`, `ROI_list.csv` : Data required to visualize SCCA results
 
 ## Reference
+Akiba, T., Sano, S., Yanase, T., Ohta, T., & Koyama, M. (2019, July). Optuna: A next-generation hyperparameter optimization framework. In Proceedings of the 25th ACM SIGKDD international conference on knowledge discovery & data mining (pp. 2623-2631).
+
+Witten, D. M., Tibshirani, R., & Hastie, T. (2009). A penalized matrix decomposition, with applications to sparse principal components and canonical correlation analysis. Biostatistics, 10(3), 515-534. https://doi.org/10.1093/biostatistics/kxp008 
+
+Xu, L., Skoularidou, M., Cuesta-Infante, A., & Veeramachaneni, K. (2019). Modeling tabular data using conditional gan. Advances in Neural Information Processing Systems, 32.
