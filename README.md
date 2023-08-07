@@ -4,7 +4,7 @@ This repository contains code and synthetic data for the research paper titled "
 
 ## SCCA Code
 
-This section contains the description of codes used for Sparse Canonical Correlation Analysis (Witten et al., 2009) and its visualization. The code is organized into different scripts:
+This section describes the codes for Sparse Canonical Correlation Analysis (Witten et al., 2009) used in this paper and and its visualization. The code is organized into different scripts:
 
 - `scca_pipeline_example.sh`: A pipeline for SCCA computation and visualization.
 
