@@ -25,6 +25,8 @@ This section describes the codes for Sparse Canonical Correlation Analysis (Witt
 
 ## Data
 - `DTI_node_coordinate_22_07_14.csv`, `ENV_Pheno_separate.csv`, `ROI_list.csv` : Data required to visualize SCCA results
+- `cov_synthetic.csv` : Covariates data
+- `pgs_synthetic.csv`, `env_synthetic.csv`, `pheno_synthetic.csv`, `BNM_1-4_synthetic.csv` : Main data
 
 ## Reference
 Akiba, T., Sano, S., Yanase, T., Ohta, T., & Koyama, M. (2019, July). Optuna: A next-generation hyperparameter optimization framework. In Proceedings of the 25th ACM SIGKDD international conference on knowledge discovery & data mining (pp. 2623-2631).
