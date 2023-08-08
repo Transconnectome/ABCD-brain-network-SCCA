@@ -24,7 +24,7 @@ This section describes the codes for Sparse Canonical Correlation Analysis (Witt
 - `bootstrap_vis_global_rich_club_BNM.py`: Visualization code for SCCA result of global brain network measures.
 
 ## Data
-- `DTI_node_coordinate_22_07_14.csv`, `ENV_Pheno_separate.csv`, `ROI_list.csv` : Data required to visualize SCCA results
+- `DTI_node_coordinate.csv`, `ENV_Pheno_separate.csv`, `ROI_list.csv` : Data required to visualize SCCA results
 - `cov_synthetic.csv` : Covariates data
 - `pgs_synthetic.csv`, `env_synthetic.csv`, `pheno_synthetic.csv`, `BNM_1-4_synthetic.csv` : Main data
 
