@@ -75,7 +75,7 @@ else:
                             'neighborhood_environment', 'parent_trait', 'family_environment',
                             'school_environment', 'family_history']
                         
-for metric in ['weight', 'loading', 'cross_loading', 'density_partial_loading', 'density_partial_cross_loading']:
+for metric in ['weight', 'loading', 'cross_loading']:
     for comp_num in range(1,6):
 
         data = pd.read_csv(f'{input_data_dir}/bootstrap_result_summary_{block}_{metric}_comp{comp_num}.csv', index_col=0)
