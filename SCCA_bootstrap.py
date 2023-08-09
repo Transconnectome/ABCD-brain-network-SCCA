@@ -31,7 +31,6 @@ def PMD_bootstrap(cca_x, cca_y, penalty, n_comp, n_boot, n_start, n_step, save_o
 
             cca_x_boot = cca_x.sample(len(cca_x), replace=True)
             cca_y_boot = cca_y.loc[cca_x_boot.index]
-            density_boot = pd.DataFrame(cca_y_boot['density'])
             
             cca_boot = SCCA_PMD(c=penalty, latent_dims=n_comp, max_iter=200).fit([cca_x_boot, cca_y_boot])
             cca_x_weight = pd.DataFrame(cca_boot.weights[0], index=cca_x_variable)
@@ -40,11 +39,6 @@ def PMD_bootstrap(cca_x, cca_y, penalty, n_comp, n_boot, n_start, n_step, save_o
             cca_y_loading = pd.DataFrame(cca_boot.get_loadings([cca_x_boot, cca_y_boot], normalize=True)[1], index=cca_y_variable)
             cca_u = pd.DataFrame(cca_boot.transform([cca_x_boot, cca_y_boot])[0], index=cca_x_boot.index, columns=[f'u_{i}' for i in range(n_comp)])
             cca_v = pd.DataFrame(cca_boot.transform([cca_x_boot, cca_y_boot])[1], index=cca_x_boot.index, columns=[f'v_{i}' for i in range(n_comp)])
-
-            # data concat for partial loading with covar=density
-            data_x = pd.concat([cca_u, cca_v, cca_x_boot, density_boot], axis=1)
-            data_y = pd.concat([cca_u, cca_v, cca_y_boot], axis=1)
-
             cca_x_cross_loading = pd.DataFrame(np.zeros((len(cca_x_boot.iloc[0]), n_comp)), index=cca_x_variable)
             cca_y_cross_loading = pd.DataFrame(np.zeros((len(cca_y_boot.iloc[0]), n_comp)), index=cca_y_variable)
 
