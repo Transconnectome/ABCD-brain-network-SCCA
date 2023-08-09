@@ -9,9 +9,8 @@ import argparse
 import pingouin as pg
 ###############################################################
 
-# argumented variable setting
+# initial setting
 parser = argparse.ArgumentParser()
-
 parser.add_argument('--domain')
 parser.add_argument('--dataset')
 parser.add_argument('--exp_tag')
@@ -27,7 +26,6 @@ n_boot = int(args.n_boot)
 
 ncomp = 5
 
-
 # import dataset
 file_dir = f'/storage/connectome/seojw/data/SCCA_dataset/{domain}_BNM/'
 
@@ -40,7 +38,6 @@ cca_y = pd.read_csv(cca_y_file_name, index_col=0)
 scaler = StandardScaler()
 cca_x = pd.DataFrame(scaler.fit_transform(cca_x), index=cca_x.index, columns=cca_x.columns)
 cca_y = pd.DataFrame(scaler.fit_transform(cca_y), index=cca_y.index, columns=cca_y.columns)
-density = pd.DataFrame(cca_y['density'])
 
 # import hyper parameter tuning result
 param_result_dir = f'/storage/connectome/seojw/data/SCCA_param_tune_result/{domain}_BNM/first_comp_cov/{exp_tag}/param_result_{domain}_{exp_tag}.csv'
@@ -67,7 +64,6 @@ org_y_loading = scca_org.get_loadings([cca_x, cca_y], normalize=True)[1]
 org_cca_u = scca_org.transform([cca_x, cca_y])[0]
 org_cca_v = scca_org.transform([cca_x, cca_y])[1]
 
-
 org_x_cross_loading = pd.DataFrame(np.zeros((len(cca_x.iloc[0]), ncomp)), index=cca_x.columns)
 org_y_cross_loading = pd.DataFrame(np.zeros((len(cca_y.iloc[0]), ncomp)), index=cca_y.columns)
 
@@ -77,8 +73,8 @@ for comp_num in range(ncomp):
     for variable_num in range(len(cca_y.iloc[0])):
         org_y_cross_loading.iloc[variable_num ,comp_num] = np.corrcoef(cca_y.iloc[:, variable_num], org_cca_u[:, comp_num])[0, 1]
 
+# setting for fast result merging
 section_num = 50
-
 for block in ['x', 'y']:
     for metric in ['weight', 'loading', 'cross_loading']:
         for comp_num in range(1, ncomp + 1):
@@ -89,7 +85,6 @@ for block in ['x', 'y']:
 cca_bootstrap_result_dir = f'/storage/connectome/seojw/data/PMD_boot_result/{domain}_BNM/{param_tune_scheme}/{exp_tag}/bootstrap_data/'
 saving_dir = f'/storage/connectome/seojw/data/PMD_boot_result/{domain}_BNM/{param_tune_scheme}/{exp_tag}/summary_result/'
 os.makedirs(saving_dir, exist_ok=True)
-
 
 # bootstrap result summarize
 for section in range(section_num):
@@ -134,9 +129,8 @@ for block in ['x', 'y']:
         for comp_num in range(1, ncomp + 1):
 
             estimate_list = {'x_weight':a_org, 'y_weight':b_org, 'x_loading':org_x_loading, 'y_loading':org_y_loading,
-                             'x_cross_loading':org_x_cross_loading.values, 'y_cross_loading':org_y_cross_loading.values, 
-                             'x_density_partial_loading':org_x_density_partial_loading.values, 'y_density_partial_loading':org_y_density_partial_loading.values,
-                             'x_density_partial_cross_loading':org_x_density_partial_cross_loading.values, 'y_density_partial_cross_loading':org_y_density_partial_cross_loading.values}
+                             'x_cross_loading':org_x_cross_loading.values, 'y_cross_loading':org_y_cross_loading.values
+                            }
             estimate = estimate_list[f'{block}_{metric}'][:, comp_num - 1]
             low_68 = globals()[f'cca_{block}_{metric}_comp{comp_num}'].quantile(0.5 - 0.34, axis=1)
             upper_68 = globals()[f'cca_{block}_{metric}_comp{comp_num}'].quantile(0.5 + 0.34, axis=1)
