@@ -21,7 +21,7 @@ This section describes the codes for Sparse Canonical Correlation Analysis (Witt
 - `hyper_param_result_visualizer.py`: Visualization code for hyper-parameter tuning results.
 - `non_BNM_vis.py`: Visualization code for SCCA result (loading) of polygenic scores, phenotypic outcomes, and environmental factors.
 - `brain_visualize.R`: Visualization code for SCCA result of nodal brain network measures.
-- `bootstrap_vis_global_rich_club_BNM.py`: Visualization code for SCCA result of global brain network measures.
+- `bootstrap_vis_global_BNM.py`: Visualization code for SCCA result of global brain network measures.
 
 ## Data
 - `DTI_node_coordinate.csv`, `ENV_Pheno_separate.csv`, `ROI_list.csv` : Data required to visualize SCCA results
