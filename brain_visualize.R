@@ -13,12 +13,9 @@ cor <- read.csv('/storage/connectome/seojw/data/DTI_node_coordinate_22_07_14.csv
 
 bootstrap_data_dir = sprintf('/storage/connectome/seojw/data/PMD_boot_result/%s_BNM/first_comp_cov/%s/summary_result', domain, exp_tag)
 
-BNM_metric_full_list <- list('norm_clust_coef', 'norm_Cc', 'deg', 'stren','BC'
-			   #  'zstat_kcore', 'zstat_score', 'within_module_deg', 
-			   #  'clust_coef', 'kcore', 'score', 'participation_coef', 'Cc'
-			     )
+BNM_metric_full_list <- list('norm_clust_coef', 'norm_Cc', 'deg', 'stren','BC')
 
-for (CCA_metric in list('cross_loading', 'weight', 'loading', 'density_partial_loading', 'density_partial_cross_loading')){
+for (CCA_metric in list('cross_loading', 'weight', 'loading')){
 	for (comp_num in 1:5){
     data <- read.csv(sprintf('%s/bootstrap_result_summary_y_%s_comp%d.csv', bootstrap_data_dir, CCA_metric, comp_num))
     
