@@ -14,7 +14,6 @@ args = parser.parse_args()
 domain = args.domain
 exp_tag = args.exp_tag
 
-
 block = 'y'
 
 data_dir = f'/storage/connectome/seojw/data/PMD_boot_result/{domain}_BNM/first_comp_cov/{exp_tag}/summary_result'
@@ -39,7 +38,7 @@ if len(global_measures) > 300:
             global_measures.append(y_loading_comp1_res.index[i])
 
 # boostrap result plotting
-for metric in ['weight', 'loading', 'cross_loading', 'density_partial_loading', 'density_partial_cross_loading']:
+for metric in ['weight', 'loading', 'cross_loading']:
     for comp_num in range(1, 6):
         output_dir = f'{data_dir}/BNM_result/comp{comp_num}/ci_95/{metric}'
         os.makedirs(output_dir, exist_ok=True)
